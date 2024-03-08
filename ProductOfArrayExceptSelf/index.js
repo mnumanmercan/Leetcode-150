@@ -1,9 +1,10 @@
 var productExceptSelf = function (nums) {
   let zeroIndex,
     iterator = 1,
-    zeroCount = 0;
+    zeroCount = 0,
+    len = nums.length;
 
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 0; i < len; i++) {
     if (nums[i] == 0) {
       zeroCount = zeroCount + 1;
       zeroIndex = i;
@@ -13,7 +14,7 @@ var productExceptSelf = function (nums) {
     }
   }
   if (zeroIndex >= 0 && zeroCount == 1) {
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < len; i++) {
       if (zeroIndex == i) {
         nums[i] = iterator;
       } else {
@@ -21,11 +22,11 @@ var productExceptSelf = function (nums) {
       }
     }
   } else if (zeroCount > 1) {
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < len; i++) {
       nums[i] = 0;
     }
   } else {
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < len; i++) {
       nums[i] = iterator / nums[i];
     }
   }
